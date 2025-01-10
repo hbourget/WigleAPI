@@ -26,4 +26,4 @@ Ce projet utilise l'API Wigle pour récupérer des données géographiques basé
 - Modifier les paramètres souhaité dans le code, ligne 40.
    ```bash
    source .venv/bin/activate
-   py main.py```
+   py main.py
