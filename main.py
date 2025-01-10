@@ -1,6 +1,7 @@
 import requests
+import argparse
 
-WIGLE_API_KEY = ""
+WIGLE_API_KEY = "QUlEYzJkNDY0OGE1YjA3YWYwMDQxYTNlZjE5NGIzNTM3MjE6YTkwNTQyYTNiZTkyMmQ0YTZlY2FjYjBjY2UzOTY0MzY="
 
 def get_location(bssid=None, country=None, ssid=None):
     """
@@ -35,15 +36,24 @@ def get_location(bssid=None, country=None, ssid=None):
         print(f"Erreur HTTP {response.status_code}: {response.text}")
         return None
 
-
 if __name__ == "__main__":
-    location_data = get_location("5C:DC:96:94:EE:80", "CH")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--bssid", help="Le BSSID (adresse MAC) du point d'accès Wi-Fi", required=False)
+    parser.add_argument("--country", help="Le pays dans lequel chercher", required=False)
+    parser.add_argument("--ssid", help="Le SSID du point d'accès Wi-Fi", required=False)
 
-    if location_data:
-        for entry in location_data:
-            print(f"SSID: {entry.get('ssid', 'N/A')}")
-            print(f"Latitude: {entry.get('trilat')}")
-            print(f"Longitude: {entry.get('trilong')}")
-            print(f"Pays: {entry.get('country')}")
+    args = parser.parse_args()
+
+    if not any([args.bssid, args.country, args.ssid]):
+        print("Aucun argument fourni. Utilisez --bssid, --country ou --ssid pour rechercher des données.")
     else:
-        print("Aucune donnée trouvée pour ces paramètres.")
+        location_data = get_location(bssid=args.bssid, country=args.country, ssid=args.ssid)
+
+        if location_data:
+            for entry in location_data:
+                print(f"SSID: {entry.get('ssid', 'N/A')}")
+                print(f"Latitude: {entry.get('trilat')}")
+                print(f"Longitude: {entry.get('trilong')}")
+                print(f"Pays: {entry.get('country')}")
+        else:
+            print("Aucune donnée trouvée pour ces paramètres.")
