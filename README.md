@@ -20,6 +20,10 @@ Ce projet utilise l'API Wigle pour récupérer des données géographiques basé
 1. Clone du dépôt :
    ```bash
    git clone <URL_DU_DÉPÔT>
-   cd <NOM_DU_RÉPERTOIRE>
+   cd <NOM_DU_RÉPERTOIRE>```
+
+## Lancement
+- Modifier les paramètres souhaité dans le code, ligne 40.
+   ```bash
    source .venv/bin/activate
-   py main.py
+   py main.py```
