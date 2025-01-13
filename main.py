@@ -6,7 +6,7 @@ WIGLE_API_KEY = "QUlEYzJkNDY0OGE1YjA3YWYwMDQxYTNlZjE5NGIzNTM3MjE6YTkwNTQyYTNiZTk
 
 def get_location(bssid=None, country=None, ssid=None):
     """
-    Contacte l'API de Wigle pour récupérer les données géographiques d'un BSSID.
+    Utilise l'API de Wigle pour récupérer les données géographiques d'un BSSID.
 
     :param bssid: Le BSSID (adresse MAC) du point d'accès Wi-Fi (optionnel)
     :param country: Le pays dans lequel chercher (optionnel)
@@ -39,7 +39,7 @@ def get_location(bssid=None, country=None, ssid=None):
 
 def create_map(latmap, lonmap, ssidmap):
     """
-    Crée une carte interactive avec un marqueur à l'emplacement spécifié.
+    Crée une carte interactive avec un marqueur à l'emplacement spécifié avec folium.
 
     :param latmap: Latitude
     :param lonmap: Longitude
