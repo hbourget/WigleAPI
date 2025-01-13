@@ -2,7 +2,7 @@ import requests
 import argparse
 import folium
 
-WIGLE_API_KEY = "QUlEYzJkNDY0OGE1YjA3YWYwMDQxYTNlZjE5NGIzNTM3MjE6YTkwNTQyYTNiZTkyMmQ0YTZlY2FjYjBjY2UzOTY0MzY="
+WIGLE_API_KEY = ""
 
 def get_location(bssid=None, country=None, ssid=None):
     """
