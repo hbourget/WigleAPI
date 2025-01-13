@@ -1,5 +1,6 @@
 import requests
 import argparse
+import folium
 
 WIGLE_API_KEY = "QUlEYzJkNDY0OGE1YjA3YWYwMDQxYTNlZjE5NGIzNTM3MjE6YTkwNTQyYTNiZTkyMmQ0YTZlY2FjYjBjY2UzOTY0MzY="
 
@@ -36,6 +37,22 @@ def get_location(bssid=None, country=None, ssid=None):
         print(f"Erreur HTTP {response.status_code}: {response.text}")
         return None
 
+def create_map(latmap, lonmap, ssidmap):
+    """
+    Crée une carte interactive avec un marqueur à l'emplacement spécifié.
+
+    :param latmap: Latitude
+    :param lonmap: Longitude
+    :param ssidmap: Nom du réseau Wi-Fi
+    """
+    map_ = folium.Map(location=[lat, lon], zoom_start=15)
+    folium.Marker(
+        [latmap, lonmap],
+        popup=f"SSID: {ssidmap}",
+        tooltip="Cliquez pour plus d'infos"
+    ).add_to(map_)
+    map_.save("map.html")
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--bssid", help="Le BSSID (adresse MAC) du point d'accès Wi-Fi", required=False)
@@ -51,9 +68,17 @@ if __name__ == "__main__":
 
         if location_data:
             for entry in location_data:
-                print(f"SSID: {entry.get('ssid', 'N/A')}")
-                print(f"Latitude: {entry.get('trilat')}")
-                print(f"Longitude: {entry.get('trilong')}")
-                print(f"Pays: {entry.get('country')}")
+                ssid = entry.get("ssid", "N/A")
+                lat = entry.get("trilat")
+                lon = entry.get("trilong")
+                country = entry.get("country")
+
+                print(f"SSID: {ssid}")
+                print(f"Latitude: {lat}")
+                print(f"Longitude: {lon}")
+                print(f"Pays: {country}")
+
+                # Create and save the map
+                create_map(lat, lon, ssid)
         else:
             print("Aucune donnée trouvée pour ces paramètres.")
