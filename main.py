@@ -78,7 +78,6 @@ if __name__ == "__main__":
                 print(f"Longitude: {lon}")
                 print(f"Pays: {country}")
 
-                # Create and save the map
                 create_map(lat, lon, ssid)
         else:
             print("Aucune donnée trouvée pour ces paramètres.")
