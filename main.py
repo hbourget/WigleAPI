@@ -1,8 +1,10 @@
+import os
+
 import requests
 import argparse
 import folium
 
-WIGLE_API_KEY = ""
+WIGLE_API_KEY = os.getenv("WIGLE_API_KEY")
 
 def get_location(bssid=None, country=None, ssid=None):
     """
@@ -72,11 +74,13 @@ if __name__ == "__main__":
                 lat = entry.get("trilat")
                 lon = entry.get("trilong")
                 country = entry.get("country")
+                encryption = entry.get("encryption")
 
                 print(f"SSID: {ssid}")
                 print(f"Latitude: {lat}")
                 print(f"Longitude: {lon}")
                 print(f"Pays: {country}")
+                print(f"Chiffrement: {encryption}")
 
                 create_map(lat, lon, ssid)
         else:
