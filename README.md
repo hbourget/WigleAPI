@@ -10,27 +10,27 @@
 
 ## Installation
 
-1. **Clone the Repository**
+1. **Clone the repository**
 
    ```bash
    https://github.com/hbourget/WigleAPI.git
    cd WigleAPI
    ```
 
-2. **Create a Virtual Environment (Optional but Recommended)**
+2. **Create a Virtual Environment**
 
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Install Dependencies**
+3. **Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-2. **Run the Script**
+2. **Run the script**
 
    ```bash
    python main.py --country CH --ssid "ExampleSSID" --bssid "00:14:22:01:23:45"
