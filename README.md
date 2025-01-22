@@ -1,21 +1,45 @@
 # Wigle Location Finder
 
-Ce projet utilise l'API Wigle pour récupérer des données géographiques basées sur un BSSID et/ou un SSID avec en option la possibilité de limité le scope à un pays. En données d'exemple, on requête un SSID en Suisse.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python Version](https://img.shields.io/badge/python-3.7%2B-purple.svg)
 
-## Fonctionnalités
+## Prerequisites
 
-- Recherche de localisation basée sur :
-  - **BSSID** (adresse MAC du point d'accès Wi-Fi, optionel)
-  - **SSID** (nom du réseau Wi-Fi, optionel)
-  - **Pays** (filtrage par pays, il faut utiliser les codes pays, par exemple FR, CH, BE..., optionel)
-- Affichage des coordonnées géographiques (latitude et longitude) des points d'accès trouvés.
+- Python 3.7 or higher
+- A WiGLE API key (register on [wigle.net](https://wigle.net/))
 
-## Prérequis
+## Installation
 
-- Python 3.7 ou supérieur
-- Une clé API Wigle (inscription sur [wigle.net](https://wigle.net/))
+1. **Clone the Repository**
 
-## Lancement
+   ```bash
+   https://github.com/hbourget/WigleAPI.git
+   cd WigleAPI
+   ```
+
+2. **Create a Virtual Environment (Optional but Recommended)**
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install Dependencies**
+
    ```bash
    pip install -r requirements.txt
-   py main.py --country --ssid --bssid
+   ```
+
+2. **Run the Script**
+
+   ```bash
+   python main.py --country CH --ssid "ExampleSSID" --bssid "00:14:22:01:23:45"
+   ```
+
+   - Replace `<COUNTRY_CODE>` with the desired country code (e.g., FR, CH, BE).
+   - Replace `<SSID_NAME>` with the Wi-Fi network name you want to query.
+   - Replace `<BSSID_ADDRESS>` with the Wi-Fi access point MAC address.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
