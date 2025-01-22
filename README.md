@@ -17,4 +17,5 @@ Ce projet utilise l'API Wigle pour récupérer des données géographiques basé
 
 ## Lancement
    ```bash
+   pip install -r requirements.txt
    py main.py --country --ssid --bssid
