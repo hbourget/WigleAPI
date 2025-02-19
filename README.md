@@ -1,7 +1,7 @@
 # Wigle Location Finder
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python Version](https://img.shields.io/badge/python-3.7%2B-purple.svg)
+![License](https://img.shields.io/badge/License-MIT-black.svg)
+![Python Version](https://img.shields.io/badge/Python-3.7%2B-blue.svg)
 
 ## Prerequisites
 
